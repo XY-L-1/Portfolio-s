@@ -150,11 +150,12 @@ a:hover {
 /* Sections */
 section {
    padding-top: 4vh;
-   height: 80vh;
+   /* height: 80vh; */
+   min-height: 80vh;
    /* padding: 4vh 10rem; */
    margin: 0 10rem;
    box-sizing: border-box;
-   min-height: fit-content;
+   /* min-height: fit-content; */
 }
 
 .section-container{
@@ -163,8 +164,14 @@ section {
    align-items: center;
    justify-content: center;
    height: 80%;
+   flex-wrap: wrap;
 }
 
+#experience .section-container > .details-container {
+   flex: 1 1 350px;
+   min-width: 0;
+   margin-bottom: 2rem;
+}
 
 /* Profile Section */
 
@@ -407,7 +414,9 @@ article .icon {
 /* 2A. Carousel viewport (masks overflow) */
 .skills-carousel {
    overflow: hidden;
-   width: 100%;
+   /* width: 100%; */
+   box-sizing: border-box;
+   max-width: 100%;
    padding: 1rem 0;
    background: #fafafa;      /* optional styling */
    border-radius: 1rem;

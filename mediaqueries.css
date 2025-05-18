@@ -25,10 +25,6 @@
       margin-top: 2rem;
    }
 
-   #profile,
-   .section-container {
-      display: block;
-   }
    .arrow {
       display: none;
    }
@@ -116,6 +112,11 @@
    
    .text-container {
       text-align: justify;
+   }
+
+   #profile,
+   .section-container {
+      display: block;
    }
    
 }

@@ -150,7 +150,8 @@ a:hover {
 /* Sections */
 section {
    padding-top: 4vh;
-   height: 96vh;
+   height: 80vh;
+   /* padding: 4vh 10rem; */
    margin: 0 10rem;
    box-sizing: border-box;
    min-height: fit-content;
@@ -158,6 +159,10 @@ section {
 
 .section-container{
    display: flex;
+   gap: 4rem;
+   align-items: center;
+   justify-content: center;
+   height: 80%;
 }
 
 
@@ -220,6 +225,12 @@ section {
    height: 2rem;
 }
 
+.details-container .icon {
+   height: 3rem;       
+   width: 3rem;         
+   object-fit: contain; 
+   margin: 0 auto 1rem;
+ }
 
 /* Buttons */
 .btn-container {
@@ -309,6 +320,13 @@ section {
    bottom: 2.5rem;
 }
 
+.about-list {
+   list-style: disc inside;
+   margin-top: 0.5rem;
+   color: rgb(85, 85, 85);
+   text-align: left;
+}
+
 .details-container {
    position: relative;
    padding: 1.5rem;
@@ -321,11 +339,22 @@ section {
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
+   text-align: center;     
+   align-items: center;    
 }
 
-.section-container {
-   gap: 4rem;
-   height: 80%;
+.details-container.color-container {
+   display: flex;
+   flex-direction: column;
+ }
+
+ .details-container.color-container .article-container,
+.details-container.color-container p {
+  flex: 0 0 auto; 
+}
+
+.details-container.color-container .btn-container {
+  margin-top: auto; 
 }
 
 .section__pic-container {
@@ -373,6 +402,58 @@ article .icon {
    cursor: default;
 }
 
+/* Experience Section --- Skills */
+
+/* 2A. Carousel viewport (masks overflow) */
+.skills-carousel {
+   overflow: hidden;
+   width: 100%;
+   padding: 1rem 0;
+   background: #fafafa;      /* optional styling */
+   border-radius: 1rem;
+ }
+ 
+ /* 2B. Track that moves leftward */
+ .skills-track {
+   display: flex;
+   /* total width = (item-width + gap) × number_of_items_in_one_set × 2 */
+   /* e.g. if each .skill-item is 80px + 1rem gap, and you have 7 unique items: */
+   width: calc( (80px + 1rem) * 7 * 2 );
+   animation: scroll-left 20s linear infinite;
+ }
+ 
+ /* 2C. One skill “pill” */
+ .skill-item {
+   flex: 0 0 auto;
+   width: 80px;          /* fixed width */
+   margin: 0 0.5rem;     /* half of the gap on each side */
+   text-align: center;
+ }
+ .skill-item img {
+   width: 48px;
+   height: 48px;
+   object-fit: contain;
+   margin-bottom: 0.25rem;
+ }
+ .skill-item span {
+   display: block;
+   font-size: 0.875rem;
+ }
+ 
+ /* 2D. Pause animation on hover */
+ .skills-carousel:hover .skills-track {
+   animation-play-state: paused;
+ }
+ 
+ /* 2E. Keyframes: shift by exactly one set’s width */
+ @keyframes scroll-left {
+   from { transform: translateX(0); }
+   to {
+     transform: translateX(
+       calc(-1 * ((80px + 1rem) * 7))
+     );
+   }
+ }
 
 /* Project section */
 #projects {
